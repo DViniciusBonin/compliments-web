@@ -1,0 +1,75 @@
+:root {
+    --main-bg-color: #22577A;
+    --color-text-primary: #000000;
+    --color-text-secondary:  #57CC99;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
+html {
+    background-color: var(--main-bg-color);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+
+    padding: 4%;
+}
+
+header img {
+    max-width: 80%;
+}
+main {
+    width: 100%;
+}
+#container {
+    display: flex;
+    justify-content: center;
+}
+
+ #container img {
+    max-width: 90vw;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+
+    max-height: 500px;
+    margin-bottom: 6rem;
+} 
+
+.buttons-container {
+    width: 50%;
+    height: 30%;
+    max-width: 50vw;
+    display: flex;
+    justify-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 1rem;
+    padding: 2rem 2rem;
+    max-width: 150px;
+}
+
+.button-login {
+    background-color: var(--color-text-primary);
+    color: var(--color-text-secondary);
+    width: 50%;
+    
+    
+}
+.button-register {
+    background-color: var(--color-text-secondary);
+    color: var(--color-text-primary);
+    width: 50%;
+}
+
+
