@@ -1,75 +1,122 @@
 :root {
-    --main-bg-color: #22577A;
-    --color-text-primary: #000000;
-    --color-text-secondary:  #57CC99;
+  --main-bg-color: #22577a;
+  --color-text-primary: #000000;
+  --color-text-secondary: #57cc99;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Raleway:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&display=swap");
 
 html {
-    background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 }
 
 header {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    padding: 4%;
+  padding: 4%;
 }
 
 header img {
-    max-width: 80%;
+  max-width: 80%;
 }
 main {
-    width: 100%;
+  width: 100%;
 }
 #container {
-    display: flex;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: 60% 40%;
 }
 
- #container img {
-    max-width: 90vw;
-    height: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
+#container img {
+  width: 100%;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 
-    max-height: 500px;
-    margin-bottom: 6rem;
-} 
+  max-height: 500px;
+  margin-bottom: 6rem;
+}
 
 .buttons-container {
-    width: 50%;
-    height: 30%;
-    max-width: 50vw;
-    display: flex;
-    justify-items: center;
-    justify-content: space-around;
-    margin: 0 auto;
+  /* width: 50%; */
+  /* height: 30%; */
+  max-width: 50vw;
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
 }
 
 .button {
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    border-radius: 10px;
-    text-align: center;
-    margin: 0 1rem;
-    padding: 2rem 2rem;
-    max-width: 150px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 0.3rem;
+  padding: 1rem 2rem;
+  max-width: 150px;
+  font-size: 1.2rem;
 }
 
 .button-login {
-    background-color: var(--color-text-primary);
-    color: var(--color-text-secondary);
-    width: 50%;
-    
-    
+  background-color: var(--color-text-primary);
+  color: var(--color-text-secondary);
+  width: 50%;
 }
 .button-register {
-    background-color: var(--color-text-secondary);
-    color: var(--color-text-primary);
-    width: 50%;
+  background-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  width: 50%;
 }
 
+section {
+  width: 100%;
 
+  max-height: 451px;
+}
+
+section h2 {
+  margin-bottom: 0.5rem;
+  font-family: "Changa One", cursive;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 51px;
+  width: 50%;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 1100px) {
+  header {
+    justify-content: flex-start;
+  }
+
+  .buttons-container {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 1099px) {
+  #container {
+    grid-template-columns: 1fr;
+  }
+
+  #container img {
+    max-height: 70vh;
+    margin-bottom: 3rem;
+  }
+
+  section {
+    display: none;
+  }
+
+  @media (max-width: 530px) {
+    #container img {
+      margin-top: 3rem;
+      height: 100%;
+      max-height: 600px;
+      margin-bottom: 6rem;
+    }
+  }
+}
