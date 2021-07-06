@@ -6,7 +6,7 @@ https://www.figma.com/file/qLJi853jJTa0tJCu0VhzzG/Compliments?node-id=0%3A1
 # Checkist
 Caixas de Diálogo
 
-- [x] prompt
+- [ ] prompt
 - [ ] alert
 - [ ] confirm
 
