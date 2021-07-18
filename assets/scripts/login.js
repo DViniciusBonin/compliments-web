@@ -29,11 +29,11 @@ btnSignin.addEventListener('click', () => {
 
                 const response = JSON.parse(ajax.response)
 
-                localStorage.setItem('__user', JSON.stringify({
-                    email, access_token: response.access_token
+                localStorage.setItem('_token', JSON.stringify({
+                    access_token: response.access_token
                 }))
                 console.log(response)
-
+                window.location = '/views/profileUserCompliments.html'
             }
         })
     }

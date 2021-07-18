@@ -1,6 +1,6 @@
-(function () {
+function cookies() {
     const cookies = confirm('aceitar cookies')
-})();
+}
 
 
 
@@ -24,3 +24,4 @@ setTimeout(() => {
 
 
 }, 5000)
+
