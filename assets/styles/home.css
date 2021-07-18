@@ -65,10 +65,20 @@ main {
   color: var(--color-text-secondary);
   width: 50%;
 }
+
+.button-login:hover {
+  background-color: #101010;
+  transition: 2s;
+}
 .button-register {
   background-color: var(--color-text-secondary);
   color: var(--color-text-primary);
   width: 50%;
+}
+.button-register:hover {
+  background-color: #80ed99;
+  transition: 2s;
+
 }
 
 section {
