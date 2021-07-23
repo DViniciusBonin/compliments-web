@@ -33,7 +33,7 @@ btnSignin.addEventListener('click', () => {
                     access_token: response.access_token
                 }))
                 console.log(response)
-                window.location = '/views/profileUserCompliments.html'
+                window.location = '/views/profile-user-compliments.html'
             }
         })
     }
