@@ -12,15 +12,12 @@ buttons[0].href = "/views/login.html";
 buttons[1].href = "views/register.html";
 
 
-function alert() {
-    alert("anuncio");
-}
 
 
 setTimeout(() => {
     let x = 0;
     const key = setInterval(() => {
-        alert();
+        alert("anuncio");
         console.log(x);
         x++;
 
