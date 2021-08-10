@@ -53,30 +53,28 @@ inputsRegister.onsubmit = (event) => {
     if (!validatePassword()) {
         return alert("Senhas não conferem!");
     }
-    inputsRegister[4].onclick = () => {
 
-        inputsRegister[4].value = "Carregando...";
+    inputsRegister[4].value = "Carregando...";
 
-        let name = inputsRegister.elements[0].value;
-        let initial = name.substr(0, 1).toUpperCase();
+    let name = inputsRegister.elements[0].value;
+    let initial = name.substr(0, 1).toUpperCase();
 
-        name = name.replace(initial.toLowerCase(), initial);
-        const user = {
-            name: name,
-            email: inputsRegister.elements[1].value,
-            password: inputsRegister.elements[2].value
-        };
-
-        fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(user)
-        }).then(res => {
-            console.log(res.data);
-            alert("Usuário cadastrado com sucesso!");
-            window.location = "/views/login.html";
-        });
+    name = name.replace(initial.toLowerCase(), initial);
+    const user = {
+        name: name,
+        email: inputsRegister.elements[1].value,
+        password: inputsRegister.elements[2].value
     };
+
+    fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+        },
+        body: JSON.stringify(user)
+    }).then(res => {
+        console.log(res.data);
+        alert("Usuário cadastrado com sucesso!");
+        window.location = "/views/login.html";
+    });
 };
