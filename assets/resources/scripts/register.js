@@ -3,6 +3,7 @@ const inputsRegister = document.forms.register;
 
 for (const input in inputsRegister) {
     if (input === "0") {
+
         inputsRegister[input].onfocus = () => {
             inputsRegister[input].placeholder = "Example: Jonas";
         };
@@ -51,7 +52,8 @@ inputsRegister[1].addEventListener("invalid", (event) => {
 inputsRegister.onsubmit = (event) => {
     event.preventDefault();
     if (!validatePassword()) {
-        return alert("Senhas não conferem!");
+        window.alert("Senhas não conferem!");
+        return false;
     }
 
     inputsRegister[4].value = "Carregando...";
@@ -66,7 +68,7 @@ inputsRegister.onsubmit = (event) => {
         password: inputsRegister.elements[2].value
     };
 
-    fetch("http://localhost:3000/users", {
+    fetch("http://143.198.237.131:3000/users", {
         method: "POST",
         headers: {
             "content-type": "application/json",
@@ -74,7 +76,7 @@ inputsRegister.onsubmit = (event) => {
         body: JSON.stringify(user)
     }).then(res => {
         console.log(res.data);
-        alert("Usuário cadastrado com sucesso!");
+        window.alert("Usuário cadastrado com sucesso!");
         window.location = "/views/login.html";
     });
 };

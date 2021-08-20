@@ -17,7 +17,7 @@ btnSignin.addEventListener("click", () => {
 
     function login() {
         const ajax = new XMLHttpRequest();
-        ajax.open("POST", "http://localhost:3000/auth");
+        ajax.open("POST", "http://143.198.237.131:3000/auth");
         ajax.setRequestHeader("Content-type", "application/json; charset=utf-8");
         const user = {
             email: email,

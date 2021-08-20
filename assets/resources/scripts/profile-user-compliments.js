@@ -6,7 +6,7 @@ const getNameUser = function (key) {
 
 const json = localStorage.getItem("_token");
 const token = JSON.parse(json).accessToken;
-fetch("http://localhost:3000/user", {
+fetch("http://143.198.237.131:3000/user", {
     method: "GET",
     headers: {
         "content-type": "application/json",
@@ -41,3 +41,25 @@ logout.addEventListener("click", () => {
     localStorage.removeItem("_token");
     window.location = "/";
 });
+
+
+fetch('http://143.198.237.131:3000/users/compliments/received', {
+    method: "GET",
+    headers: {
+        "content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+    }
+}).then(res => {
+    return res.json();
+}).then(res => {
+
+    if (res.length == 0) {
+        document.querySelector('.compliments ul').innerHTML = '<li> Sem feedbacks por enquanto... Continue se dedicando!</li>';
+
+
+    }
+    res.forEach(compliment => {
+        document.querySelector('.compliments ul').innerHTML += `<li> #${compliment.tag.name} 
+        <p>${compliment.message}<p></li>`
+    })
+})
