@@ -4,7 +4,8 @@ const getNameUser = function (key) {
     return JSON.parse(localStorage.getItem(key)).user;
 };
 
-document.querySelector('h3').innerHTML = `Olá, ${getNameUser('_user')} `;
+const nameUser = getNameUser('_user');
+document.querySelector('h3').innerHTML = `Olá, ${nameUser} `;
 
 const json = localStorage.getItem('_token');
 const token = JSON.parse(json).accessToken;
@@ -42,14 +43,15 @@ fetch(`${baseApiUrl}/users`, {
     }).then(userCompliments => {
 
         res.forEach(user => {
-            let tags = '';
+            if (user.name !== nameUser) {
+                let tags = '';
 
-            for (let i = 0; i < userCompliments.length; i++) {
-                if (userCompliments[i].user === user.name) {
-                    tags += ` #${userCompliments[i].tag}`;
+                for (let i = 0; i < userCompliments.length; i++) {
+                    if (userCompliments[i].user === user.name) {
+                        tags += ` #${userCompliments[i].tag}`;
+                    }
                 }
-            }
-            document.querySelector('.compliments ul').innerHTML += `
+                document.querySelector('.compliments ul').innerHTML += `
             <li id='${user.id}'>
                 <div>
                     <h3>${user.name}</h3>
@@ -60,9 +62,18 @@ fetch(`${baseApiUrl}/users`, {
             </li>
             
             `;
+            }
 
 
 
         });
     });
+});
+
+const logout = document.getElementById('logout');
+
+logout.addEventListener('click', () => {
+    localStorage.removeItem('_user');
+    localStorage.removeItem('_token');
+    window.location = '/';
 });
