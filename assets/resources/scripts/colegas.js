@@ -1,5 +1,11 @@
 import baseApiUrl from './global.js';
 
+const getNameUser = function (key) {
+    return JSON.parse(localStorage.getItem(key)).user;
+};
+
+document.querySelector('h3').innerHTML = `Olá, ${getNameUser('_user')} `;
+
 const json = localStorage.getItem('_token');
 const token = JSON.parse(json).accessToken;
 
