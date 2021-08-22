@@ -13,6 +13,7 @@
   <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="../assets/resources/styles/main.css" />
   <link rel="stylesheet" href="../assets/resources/styles/colegas.css" />
+  <link rel="stylesheet" href="../assets/resources/styles/elogiar.css" />
 
     <title>Compliments - Profile</title>
     
@@ -40,21 +41,27 @@
         <a id="logout" href="#">sair</a>
     </div>
     <main>
-        <section class="compliments-user">
+    
             <h2>Elogie seu colega</h2>
 
+            <div class="container">
+                <form class= "form" name="elogiar">
+                    <input id="nameUser" type="text" value="" disabled>
+    
+                    <select name="" id="">
+                        <option >Selecione uma tag de elogio</option>
+    
+                    </select>
+    
+                    <textarea name="" id="" rows="10" placeholder="Digite seu elogio..."></textarea>
 
-            <span>colegas</span>
-            <div class="compliments">
-                <ul>
-                    
-                    
-                </ul>
+                    <button class="button" >Elogiar</button>
+                </form>
             </div>
-        </section>
     </main>
     
     <script type="module" src="../assets/resources/scripts/main.js"></script>
-    <script type="module" src="../assets/resources/scripts/colegas.js"></script>
+    <script type="module" src="../assets/resources/scripts/elogiar.js"></script>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
-import baseApiUrl from './global.js';
 'use strict';
+import baseApiUrl from './global.js';
+
 
 const getNameUser = function (key) {
     return JSON.parse(localStorage.getItem(key)).user;

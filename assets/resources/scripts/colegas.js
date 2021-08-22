@@ -1,5 +1,7 @@
 import baseApiUrl from './global.js';
 
+
+
 const getNameUser = function (key) {
     return JSON.parse(localStorage.getItem(key)).user;
 };
@@ -20,6 +22,15 @@ menu.addEventListener('click', () => {
     } else {
         opcoes.style.display = 'none';
     }
+});
+
+
+const logout = document.getElementById('logout');
+
+logout.addEventListener('click', () => {
+    localStorage.removeItem('_user');
+    localStorage.removeItem('_token');
+    window.location = '/';
 });
 
 fetch(`${baseApiUrl}/users`, {
@@ -52,28 +63,32 @@ fetch(`${baseApiUrl}/users`, {
                     }
                 }
                 document.querySelector('.compliments ul').innerHTML += `
-            <li id='${user.id}'>
-                <div>
-                    <h3>${user.name}</h3>
-                    <p>${tags}</p>
-                
-                </div>
-            <button>elogiar</button>
-            </li>
+                <li id='${user.id}'>
+                    <div>
+                        <h3>${user.name}</h3>
+                        <p>${tags}</p>
+                    
+                    </div>
+                <button id="${user.id}">elogiar</button>
+                </li>
             
             `;
             }
+        });
+    }).then(() => {
+        const names = document.querySelectorAll('li div h3');
+        const lis = document.querySelectorAll('li button');
+        let i = 0;
+        lis.forEach(li => {
+            const name = names[i].innerHTML;
+            li.addEventListener('click', () => {
+                window.location = `/views/elogiar.html?user=${li.id}&name=${name}`;
+            });
 
-
-
+            i++;
         });
     });
 });
 
-const logout = document.getElementById('logout');
 
-logout.addEventListener('click', () => {
-    localStorage.removeItem('_user');
-    localStorage.removeItem('_token');
-    window.location = '/';
-});
+

@@ -1,30 +1,32 @@
-"use strict";
+'use strict';
+import baseApiUrl from './global.js';
+
 const inputsRegister = document.forms.register;
 
 for (const input in inputsRegister) {
-    if (input === "0") {
+    if (input === '0') {
 
         inputsRegister[input].onfocus = () => {
-            inputsRegister[input].placeholder = "Example: Jonas";
+            inputsRegister[input].placeholder = 'Example: Jonas';
         };
         inputsRegister[input].onblur = () => {
             if (inputsRegister[input].value.length < 3) {
-                inputsRegister[input].value = "";
-                inputsRegister[input].placeholder = "minimo 3 caracteres";
+                inputsRegister[input].value = '';
+                inputsRegister[input].placeholder = 'minimo 3 caracteres';
             }
 
         };
     }
 
-    if (input === "1") {
+    if (input === '1') {
         inputsRegister[input].onfocus = () => {
-            inputsRegister[input].placeholder = "Example: example@example.com";
+            inputsRegister[input].placeholder = 'Example: example@example.com';
         };
     }
 
     if (input > 1) {
         inputsRegister[input].onfocus = () => {
-            inputsRegister[input].placeholder = "Digite senhas seguras";
+            inputsRegister[input].placeholder = 'Digite senhas seguras';
         };
     }
 }
@@ -36,27 +38,23 @@ function validatePassword() {
     return false;
 }
 
-inputsRegister[1].addEventListener("invalid", (event) => {
+inputsRegister[1].addEventListener('invalid', (event) => {
     console.log(event);
     if (inputsRegister[1].validity.typeMismatch) {
-        inputsRegister[1].setCustomValidity("Por favor, digite um email válido!");
+        inputsRegister[1].setCustomValidity('Por favor, digite um email válido!');
     } else {
-        inputsRegister[1].setCustomValidity("");
+        inputsRegister[1].setCustomValidity('');
     }
 });
-
-// inputsRegister[4].onclick = () => {
-
-// };
 
 inputsRegister.onsubmit = (event) => {
     event.preventDefault();
     if (!validatePassword()) {
-        window.alert("Senhas não conferem!");
+        window.alert('Senhas não conferem!');
         return false;
     }
 
-    inputsRegister[4].value = "Carregando...";
+    inputsRegister[4].value = 'Carregando...';
 
     let name = inputsRegister.elements[0].value;
     let initial = name.substr(0, 1).toUpperCase();
@@ -68,15 +66,15 @@ inputsRegister.onsubmit = (event) => {
         password: inputsRegister.elements[2].value
     };
 
-    fetch("http://143.198.237.131:3000/users", {
-        method: "POST",
+    fetch(`${baseApiUrl}/users`, {
+        method: 'POST',
         headers: {
-            "content-type": "application/json",
+            'content-type': 'application/json',
         },
         body: JSON.stringify(user)
     }).then(res => {
         console.log(res.data);
-        window.alert("Usuário cadastrado com sucesso!");
-        window.location = "/views/login.html";
+        window.alert('Usuário cadastrado com sucesso!');
+        window.location = '/views/login.html';
     });
 };

@@ -37,6 +37,10 @@ btnSignin.addEventListener('click', () => {
                 console.log(response);
                 window.location = '/views/profile-user-compliments.html';
             }
+
+            if (ajax.readyState === 4 && ajax.status === 400) {
+                window.alert('Email ou senha incorretos!');
+            }
         });
     }
 
