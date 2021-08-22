@@ -1,15 +1,15 @@
 
 function cookies() {
-    confirm("aceitar cookies");
+    confirm('aceitar cookies');
 }
 
 
 
 cookies();
 
-const buttons = document.getElementsByTagName("a");
-buttons[0].href = "views/login.html";
-buttons[1].href = "views/register.html";
+const buttons = document.getElementsByTagName('a');
+buttons[0].href = 'views/login.html';
+buttons[1].href = 'views/register.html';
 
 
 
@@ -17,7 +17,7 @@ buttons[1].href = "views/register.html";
 setTimeout(() => {
     let x = 0;
     const key = setInterval(() => {
-        alert("anuncio");
+        alert('anuncio');
         console.log(x);
         x++;
 
