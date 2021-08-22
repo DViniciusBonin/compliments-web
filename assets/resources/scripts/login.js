@@ -1,3 +1,4 @@
+import baseApiUrl from './global.js';
 
 function verifYBot() {
     const result = prompt("confirme que não é um robô, html é uma linguagem de programação ? Responsa s para sim e n para não");
@@ -17,7 +18,7 @@ btnSignin.addEventListener("click", () => {
 
     function login() {
         const ajax = new XMLHttpRequest();
-        ajax.open("POST", "http://143.198.237.131:3000/auth");
+        ajax.open("POST", `${baseApiUrl}/auth`);
         ajax.setRequestHeader("Content-type", "application/json; charset=utf-8");
         const user = {
             email: email,
