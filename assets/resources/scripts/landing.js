@@ -8,7 +8,7 @@ function cookies() {
 cookies();
 
 const buttons = document.getElementsByTagName("a");
-buttons[0].href = "/views/login.html";
+buttons[0].href = "views/login.html";
 buttons[1].href = "views/register.html";
 
 
