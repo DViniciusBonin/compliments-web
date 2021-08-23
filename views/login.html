@@ -12,8 +12,10 @@
     />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="theme-color" content="#ffffff" />
+    <!-- CSS only -->
     <link rel="stylesheet" href="../assets/resources/styles/main.css" />
     <link rel="stylesheet" href="../assets/resources/styles/login.css" />
+    
   </head>
   <body>
     <header>
@@ -27,8 +29,12 @@
         <section>
           <form name="login" class="form">
               <h2>login</h2>
-            <input class="input" type="email" placeholder="Informe o email">
-            <input class="input" type="password" placeholder="Informe a senha">
+
+              <div class="alert" role="alert">
+                Email ou senha incorretos!
+              </div>
+            <input class="input" type="email" placeholder="Informe o email" required>
+            <input class="input" type="password" placeholder="Informe a senha" required>
 
             <input id="signin" type="button" value="Entrar" class="button">
           </form>
